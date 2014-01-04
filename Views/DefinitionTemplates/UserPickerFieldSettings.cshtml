@@ -1,0 +1,29 @@
+﻿@model JustAProgrammer.UserPicker.Settings.UserPickerFieldSettings
+
+<fieldset>
+    <div>
+        @Html.CheckBoxFor(m => m.Required) <label for="@Html.FieldIdFor(m => m.Required)" class="forcheckbox">@T("A content item is required")</label>
+        <span class="hint">@T("Check to ensure the user is providing at least one content item.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <div>
+        @Html.CheckBoxFor(m => m.Multiple) <label for="@Html.FieldIdFor(m => m.Multiple)" class="forcheckbox">@T("Allow multiple content items")</label>
+        <span class="hint">@T("Check to allow the user to select multiple content items.")</span>
+    </div>
+</fieldset>
+<fieldset>
+    <label class="forpicker" for="@Html.FieldIdFor(m => m.QueryId)">@T("Query for selectable content")</label>    
+    <select id="@Html.FieldIdFor(m => m.QueryId)" name="@Html.FieldNameFor(m => m.QueryId)">
+        @foreach(var item in Model.QueryList) {
+            @Html.SelectOption(item.Value, item.Selected, item.Text)
+        }
+    </select> 
+    <span class="hint">@T("This query determines what content items are selectable by the user.")</span>
+</fieldset>
+<fieldset>
+    <label for="@Html.FieldIdFor(m => m.Hint)">@T("Help text")</label>
+    @Html.TextAreaFor(m => m.Hint, new { @class = "text medium", rows = "5" } )
+    <span class="hint">@T("The help text is written under the field when authors are selecting content items.")</span>
+    @Html.ValidationMessageFor(m => m.Hint)
+</fieldset>

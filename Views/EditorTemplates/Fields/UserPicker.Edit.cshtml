@@ -1,0 +1,24 @@
+﻿@using JustAProgrammer.UserPicker.Settings
+@model JustAProgrammer.UserPicker.ViewModels.UserPickerFieldViewModel
+@{
+    var settings = Model.Field.PartFieldDefinition.Settings.GetModel<UserPickerFieldSettings>();
+}
+<fieldset>
+    @if (Model.UserSelectionList != null)
+    {
+        if (settings.Multiple)
+        {
+            <label for="@Html.FieldIdFor(m => m.SelectedUserNames)">@Model.Field.DisplayName</label>
+            @Html.ListBoxFor(model => model.SelectedUserNames, new MultiSelectList(Model.UserSelectionList, "Value", "Text"))
+        }
+        else
+        {
+            <label for="@Html.FieldIdFor(m => m.SelectedUserName)">@Model.Field.DisplayName</label>
+            @Html.DropDownListFor(model => model.SelectedUserName, new SelectList(Model.UserSelectionList, "Value", "Text"))
+        }
+    }
+    else
+    {
+        <div>No Query Selected</div>
+    }
+</fieldset>

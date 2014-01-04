@@ -1,0 +1,11 @@
+﻿<Placement>
+  <Place Fields_UserPicker_Edit="Content:2.7"/>
+
+  <Match DisplayType="Detail">
+    <Place Fields_UserPicker="Content:after"/>
+  </Match>
+
+  <Match DisplayType="SummaryAdmin">
+    <!--<Place Fields_UserPicker_SummaryAdmin="Content:after"/>-->
+  </Match>
+</Placement>

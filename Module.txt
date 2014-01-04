@@ -1,0 +1,9 @@
+﻿Name: User Picker Field
+AntiForgery: enabled
+Author: Stanley Goldman
+Website: http://justaprogrammer.net
+Version: 0.1
+OrchardVersion: 1.7
+Category: Just A Programmer
+Description: Description for the module
+Dependencies: Orchard.Tokens, Orchard.Projections, Orchard.Users
